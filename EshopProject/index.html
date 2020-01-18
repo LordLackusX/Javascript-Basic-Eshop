@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Addict Gaming</title>
+        <meta name="description" content="This is the description">
+          <link rel="stylesheet" href="styles.css" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav red">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="store.html">Store</a></li>
+                    <!-- <li><a href="about.html">About</a></li> -->
+                    <li class="logged-out">
+                            <a href="#" class=" modal-trigger" data-target="modal-login">Login</a>
+                          </li>
+                         
+                         
+                         
+                     <li class="logged-in">
+                                <a href="#" class="" id="logout">Logout</a>
+                        </li>    
+
+
+
+                     <li class="logged-out">
+                            <a href="#" class=" modal-trigger" data-target="modal-signup">Sign up</a>
+                          </li>
+
+                     <li class="logged-in">
+                                <a href="#" class=" modal-trigger" data-target="modal-account">Account</a>
+                              </li>
+                </ul>
+            </nav>
+             <h2 class="band-name band-name-large">ADDICT GAMING</h2> 
+          
+       <br>
+       
+       
+    
+
+
+
+        </header>
+
+                <!-- signup modal -->
+
+        <div id="modal-signup" class="modal">
+                <div class="modal-content">
+                  <h4>Sign up</h4><br />
+                  <form id="signup-form">
+                    <div class="input-field">
+                      <input type="email" id="signup-email" required />
+                      <label for="signup-email">Email address</label>
+                    </div>
+
+
+                    <div class="input-field">
+                      <input type="password" id="signup-password" required />
+                      <label for="signup-password">Choose password</label>
+                    </div>
+
+                    
+
+                    <div class="input-field">
+                      <input type="number" id="signup-phone"  />
+                      <label for="signup-phone">Phone</label>
+                          </div>
+
+                     <div class="input-field">
+                      <input type="text" id="signup-adress"  />
+                      <label for="signup-adress">Adress</label>
+                            </div>
+
+
+                    <button class="btn red lighten-2 z-depth-0">Sign up</button>
+                  </form>
+                </div>
+              </div>
+
+                <!-- login modal -->
+
+                <div id="modal-login" class="modal">
+                        <div class="modal-content">
+                          <h4>Login</h4><br />
+                          <form id="login-form">
+                            <div class="input-field">
+                              <input type="email" id="login-email" required />
+                              <label for="login-email">Email address</label>
+                            </div>
+                            <div class="input-field">
+                              <input type="password" id="login-password" required />
+                              <label for="login-password">Your password</label>
+                            </div>
+                            <button class="btn red lighten-2 z-depth-0">Login</button>
+                          </form>
+                        </div>
+                      </div>
+
+
+                       <!-- ACCOUNT MODAL -->
+ 
+ 
+                       <div id="modal-account" class="modal">
+                        <div class="modal-content center-align">
+                        <h4>Account details</h4><br />
+                        <div class="account-details"></div>
+                        <div class="account-extras"></div>
+                        </div>
+                    </div>
+
+
+
+        <section class="content-section container">
+            <h2 class="section-header">WELCOME TO THE STORE</h2>
+            <div class="Main-Button">
+                
+                <button class="waves-effect waves-light btn-large light red" > <a href="store.html">GO TO OUR STORE</a> </button>
+
+                <br>
+                <br>
+                <br>
+                <br>
+           
+           
+           
+           
+           
+           
+           
+           
+            </div>
+
+
+            <div class="container " > 
+            <ul class="collapsible z-depth-0 games" style="border:none;">
+
+
+
+            </ul>
+            
+            
+            
+            </div>
+
+
+            
+
+
+
+
+            
+        <!-- </section>
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="band-name">ADDICT GAMING</h3>
+                <ul class="nav footer-nav">
+                    
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="Images/Facebook Logo.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+       
+       
+     </footer> -->
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA8k2x2VysGCr0DKDNqU3zUXTkAwm1oWog",
+    authDomain: "eshopproject-1a3ff.firebaseapp.com",
+    databaseURL: "https://eshopproject-1a3ff.firebaseio.com",
+    projectId: "eshopproject-1a3ff",
+    storageBucket: "eshopproject-1a3ff.appspot.com",
+    messagingSenderId: "798194380692",
+    appId: "1:798194380692:web:e2895f77c3949335dc6981",
+    measurementId: "G-TKY6HJM1XX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+// make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// update firestore settings
+// db.settings({ timestampsInSnapshots: true });
+
+</script>
+
+
+
+
+
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script src="auth.js"></script>
+     <script src="index.js"></script>
+     <script src="products.js"></script>
+
+    </body>
+</html>
